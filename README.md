@@ -15,6 +15,14 @@
 
 </span>
 
+## Modifications by Ian Oberst
+- Added custom services and characteristics in lib/HomeKitTypes.js
+- Added "Stateful" accessories that can persist values to a Raspberry Pi
+  - Files are stored in `/etc/homebridge-rpi/stateful` following the pattern `<device type>_<deviceName with no spaces>`
+  - `pigpiod` will need to have read/write access to that folder, e.g. `/etc/homebridge-rpi/statefule/*`
+  - Files persisted there can be read and used by processes running on the Pi to allow for additional settings of controlled accessories, etc.
+- Added a Slider accessory with configurable values
+
 ## Homebridge plugin for Raspberry Pi
 Copyright © 2019-2025 Erik Baauw. All rights reserved.
 

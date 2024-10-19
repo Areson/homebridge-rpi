@@ -172,6 +172,12 @@
                         ]
                       },
                       {
+                        "title": "Stateful Slider",
+                        "enum": [
+                          "slider"
+                        ]
+                      },
+                      {
                         "title": "Smoke Sensor",
                         "enum": [
                           "smoke"
@@ -280,6 +286,21 @@
                   "nLeds": {
                     "title": "# LEDs",
                     "description": "The number LEDs.<br>For device: Blinkt.",
+                    "type": "integer"
+                  },
+                  "minValue": {
+                    "title": "Minimum Value",
+                    "description": "Minimum Value.<br>For device: Stateful Slider.",
+                    "type": "integer"
+                  },
+                  "maxValue": {
+                    "title": "Maximum Value",
+                    "description": "Maximum Value.<br>For device: Stateful Slider.",
+                    "type": "integer"
+                  },
+                  "minStep": {
+                    "title": "Minimum Step",
+                    "description": "The smallest increment a slider can be changed by.<br>For device: Stateful Slider.",
                     "type": "integer"
                   }
                 },
