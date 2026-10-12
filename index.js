@@ -6,11 +6,13 @@
 import { createRequire } from 'node:module'
 
 import { RpiPlatform } from './lib/RpiPlatform.js'
+import { initStatefulTypes } from './lib/StatefulHomeKitTypes.js'
 
 const require = createRequire(import.meta.url)
 const packageJson = require('./package.json')
 
 function main (homebridge) {
+  initStatefulTypes(homebridge)
   RpiPlatform.loadPlatform(homebridge, packageJson, 'RPi', RpiPlatform)
 }
 

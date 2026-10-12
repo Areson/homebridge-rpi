@@ -89,6 +89,7 @@
                       { "title": "Rocker", "enum": ["rocker"] },
                       { "title": "Servo Motor", "enum": ["servo"] },
                       { "title": "Smoke Sensor", "enum": ["smoke"] },
+                      { "title": "Stateful Slider", "enum": ["slider"] },
                       { "title": "Switch", "enum": ["switch"] },
                       { "title": "Valve", "enum": ["valve"] }
                     ]
@@ -212,6 +213,31 @@
                       "functionBody": "return ['blinkt', 'p9813'].includes(model.hosts[arrayIndices[0]].devices[arrayIndices[1]].device)"
                     }
                   },
+                  "minValue": {
+                    "title": "Minimum Value",
+                    "description": "Lowest slider value.<br>For device: Stateful Slider.",
+                    "type": "integer",
+                    "condition": {
+                      "functionBody": "return ['slider'].includes(model.hosts[arrayIndices[0]].devices[arrayIndices[1]].device)"
+                    }
+                  },
+                  "maxValue": {
+                    "title": "Maximum Value",
+                    "description": "Highest slider value.<br>For device: Stateful Slider.",
+                    "type": "integer",
+                    "condition": {
+                      "functionBody": "return ['slider'].includes(model.hosts[arrayIndices[0]].devices[arrayIndices[1]].device)"
+                    }
+                  },
+                  "minStep": {
+                    "title": "Minimum Step",
+                    "description": "Smallest change of the slider.<br>For device: Stateful Slider.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "condition": {
+                      "functionBody": "return ['slider'].includes(model.hosts[arrayIndices[0]].devices[arrayIndices[1]].device)"
+                    }
+                  },
                   "id": {
                     "title": "ID",
                     "description": "The ID of the DS18B20 sensor (without the leading '28-').",
@@ -246,6 +272,13 @@
                       "device": { "enum": ["ds18b20"] }
                     },
                     "required": ["id"]
+                  }
+,
+                  {
+                    "properties": {
+                      "device": { "enum": ["slider"] }
+                    },
+                    "required": ["minValue", "maxValue", "minStep"]
                   }
                 ]
               }
